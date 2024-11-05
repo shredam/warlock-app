@@ -17,5 +17,6 @@ createPost.validation = {
   rules: {
     title: ["required", "string"],
     content: ["required", "string"],
+    category: ["required", "int"],
   },
 };
