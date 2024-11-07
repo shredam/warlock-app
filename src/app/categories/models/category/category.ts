@@ -1,4 +1,5 @@
-import { Casts, Model, ModelSync } from "@warlock.js/cascade";
+import type { Casts, ModelSync } from "@warlock.js/cascade";
+import { Model } from "@warlock.js/cascade";
 import { Post } from "app/posts/models/post";
 
 export class Category extends Model {
