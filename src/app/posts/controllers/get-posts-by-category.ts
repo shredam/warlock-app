@@ -1,24 +1,16 @@
-import { Aggregate, size } from "@warlock.js/cascade";
 import { type Request, type Response } from "@warlock.js/core";
 import { Category } from "app/categories/models/category";
+import { Post } from "../models/post";
 
 export default async function getPostsByCategory(
   request: Request,
   response: Response,
 ) {
-  const posts = await new Aggregate("posts")
-    .lookup({
-      from: "comments",
-      localField: "id",
-      foreignField: "post.id",
-      as: "comments",
-    })
-    .addFields({
-      totalComments: size("comments"),
-    })
-    .where("category.id", "=", request.category.id)
-    .project({ comments: 0 })
-    .get();
+  const posts = await Post.list({
+    category: {
+      id: request.category.id,
+    },
+  });
 
   return response.success({
     posts,

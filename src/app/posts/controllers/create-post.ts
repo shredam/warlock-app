@@ -5,6 +5,7 @@ export default async function createPost(request: Request, response: Response) {
   const post = await Post.create({
     ...request.validated(),
     auther: request.user,
+    commentCount: 0,
   });
 
   return response.success({
@@ -18,5 +19,6 @@ createPost.validation = {
     title: ["required", "string"],
     content: ["required", "string"],
     category: ["required", "int"],
+    commentCount: ["number"],
   },
 };

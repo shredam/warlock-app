@@ -5,7 +5,7 @@ import { Post } from "../models/post";
 export default async function deletePost(request: Request, response: Response) {
   const post = request.post;
 
-  await Post.delete(post);
+  await Post.delete(post.id);
 
   return response.success({
     post,
