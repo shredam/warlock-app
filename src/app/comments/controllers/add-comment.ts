@@ -9,10 +9,6 @@ export default async function addComment(request: Request, response: Response) {
     user: request.user,
   });
 
-  await Post.update(request.post.id, {
-    commentCount: request.post.data.commentCount + 1,
-  });
-
   return response.success({
     message: "Comment added",
     comment,

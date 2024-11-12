@@ -1,6 +1,5 @@
 import type { Request } from "@warlock.js/core";
 import { type Response } from "@warlock.js/core";
-import { Post } from "app/posts/models/post";
 import { Comment } from "../models/comment";
 
 export default async function deleteComment(
@@ -10,10 +9,6 @@ export default async function deleteComment(
   const comment = request.comment;
 
   console.log(request.comment.data.post.commentCount);
-
-  await Post.update(request.comment.data.post.id, {
-    commentCount: request.comment.data.post.commentCount - 1,
-  });
 
   await Comment.delete(comment.id);
 
