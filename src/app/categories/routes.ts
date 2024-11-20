@@ -1,6 +1,4 @@
 import { router } from "@warlock.js/core";
-import createCategory from "./controllers/create-category";
-import getCategories from "./controllers/get-categories";
+import restfulCategories from "./controllers/restful-categories";
 
-router.post("/category", createCategory);
-router.get("/categories", getCategories);
+router.restfulResource("/categories", restfulCategories);
