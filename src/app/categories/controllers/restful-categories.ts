@@ -1,5 +1,6 @@
-import { Restful, RouteResource } from "@warlock.js/core";
-import { Category } from "./../models/category";
+import type { RouteResource } from "@warlock.js/core";
+import { Restful } from "@warlock.js/core";
+import type { Category } from "./../models/category";
 import categoriesRepository from "./../repositories/catogries-repository";
 
 class RestfulCategories extends Restful<Category> implements RouteResource {

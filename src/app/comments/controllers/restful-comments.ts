@@ -1,5 +1,6 @@
-import { Restful, RouteResource } from "@warlock.js/core";
-import { Comment } from "../models/comment";
+import type { RouteResource } from "@warlock.js/core";
+import { Restful } from "@warlock.js/core";
+import type { Comment } from "../models/comment";
 import commentsRepository from "../repositories/comments-repository";
 
 class RestfulComments extends Restful<Comment> implements RouteResource {

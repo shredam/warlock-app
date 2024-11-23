@@ -1,5 +1,6 @@
-import { Restful, RouteResource } from "@warlock.js/core";
-import { Post } from "../models/post";
+import type { RouteResource } from "@warlock.js/core";
+import { Restful } from "@warlock.js/core";
+import type { Post } from "../models/post";
 import postsRepository from "../repositories/posts-repository";
 
 class RestfulPosts extends Restful<Post> implements RouteResource {

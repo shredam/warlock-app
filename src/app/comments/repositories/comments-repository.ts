@@ -1,8 +1,5 @@
-import {
-  FilterByOptions,
-  RepositoryManager,
-  RepositoryOptions,
-} from "@warlock.js/core";
+import type { FilterByOptions, RepositoryOptions } from "@warlock.js/core";
+import { RepositoryManager } from "@warlock.js/core";
 import { Comment } from "../models/comment";
 
 export class CommentsRepository extends RepositoryManager<Comment> {
