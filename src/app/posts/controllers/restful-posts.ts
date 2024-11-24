@@ -15,6 +15,7 @@ class RestfulPosts extends Restful<Post> implements RouteResource {
   public validation: RouteResource["validation"] = {
     all: {
       rules: {
+        auther: ["required", "int"],
         title: ["required", "string"],
         category: ["required", "number"],
         content: ["string"],

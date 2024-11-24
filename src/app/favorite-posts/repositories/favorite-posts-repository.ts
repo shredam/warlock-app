@@ -1,8 +1,5 @@
-import {
-  FilterByOptions,
-  RepositoryManager,
-  RepositoryOptions,
-} from "@warlock.js/core";
+import type { FilterByOptions, RepositoryOptions } from "@warlock.js/core";
+import { RepositoryManager } from "@warlock.js/core";
 import { FavoritePost } from "../models/favorite-post";
 
 export class FavoritePostsRepository extends RepositoryManager<FavoritePost> {
@@ -17,16 +14,9 @@ export class FavoritePostsRepository extends RepositoryManager<FavoritePost> {
     user: ["int", "user.id"],
   });
 
-  public getFavoritePostsByUserId(userId: number) {
+  public getFavoritePostsByUserId(_userId: number) {
     return this.list({
-      perform(query) {
-        query.lookup({
-          from: "posts",
-          localField: "post.id",
-          foreignField: "id",
-          as: "post",
-        });
-      },
+      user: _userId,
     });
   }
 }

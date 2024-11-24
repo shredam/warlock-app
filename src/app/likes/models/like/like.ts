@@ -1,4 +1,5 @@
-import { Casts, Model, ModelSync } from "@warlock.js/cascade";
+import type { Casts, ModelSync } from "@warlock.js/cascade";
+import { Model } from "@warlock.js/cascade";
 import { LikeOutput } from "app/likes/output/like-output";
 import { Post } from "app/posts/models/post";
 import { User } from "app/users/models/user";

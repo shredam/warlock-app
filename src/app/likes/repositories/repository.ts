@@ -1,8 +1,5 @@
-import {
-  FilterByOptions,
-  RepositoryManager,
-  RepositoryOptions,
-} from "@warlock.js/core";
+import type { FilterByOptions, RepositoryOptions } from "@warlock.js/core";
+import { RepositoryManager } from "@warlock.js/core";
 import { Like } from "../models/like";
 
 export class LikesRepository extends RepositoryManager<Like> {
@@ -17,7 +14,7 @@ export class LikesRepository extends RepositoryManager<Like> {
     user: ["int", "user.id"],
   });
 
-  public getLikesByPostId(postId: number) {
+  public getLikesByPostId(_postId: number) {
     return this.list({
       perform(query) {
         query.lookup({

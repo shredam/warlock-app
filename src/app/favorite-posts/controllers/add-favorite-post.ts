@@ -11,7 +11,7 @@ const addFavoritePost: RequestHandler = async (
 ) => {
   FavoritePost.create({
     post: request.int("id"),
-    user: request.user.id,
+    user: request.user,
   });
 
   response.success({});
