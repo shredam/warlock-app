@@ -16,6 +16,7 @@ export class LikesRepository extends RepositoryManager<Like> {
 
   public getLikesByPostId(_postId: number) {
     return this.list({
+      post: _postId,
       perform(query) {
         query.lookup({
           from: "users",
@@ -23,6 +24,7 @@ export class LikesRepository extends RepositoryManager<Like> {
           foreignField: "id",
           as: "user",
         });
+        query.select("user");
       },
     });
   }

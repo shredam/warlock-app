@@ -1,6 +1,6 @@
 import { Post } from "app/posts/models/post";
 import type { Like } from "../models/like";
-import likesRepository from "../repositories/repository";
+import likesRepository from "../repositories/likes-repository";
 
 Post.events().onCreated(countLikes).onDeleted(countLikes);
 

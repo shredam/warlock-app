@@ -3,7 +3,7 @@ import {
   type RequestHandler,
   type Response,
 } from "@warlock.js/core";
-import likesRepository from "../repositories/repository";
+import likesRepository from "../repositories/likes-repository";
 
 const getLikes: RequestHandler = async (
   request: Request,

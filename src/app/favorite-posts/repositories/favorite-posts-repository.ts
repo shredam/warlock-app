@@ -17,6 +17,15 @@ export class FavoritePostsRepository extends RepositoryManager<FavoritePost> {
   public getFavoritePostsByUserId(_userId: number) {
     return this.list({
       user: _userId,
+      perform(query) {
+        query.lookup({
+          from: "posts",
+          localField: "post.id",
+          foreignField: "id",
+          as: "post",
+        });
+        query.select("post");
+      },
     });
   }
 }
