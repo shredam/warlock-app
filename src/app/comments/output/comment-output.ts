@@ -10,5 +10,7 @@ export class CommentOutput extends Output {
   protected output: FinalOutput = withBaseOutputDetails({
     content: "string",
     post: PostOutput,
+    parent: CommentOutput,
+    path: "string",
   });
 }

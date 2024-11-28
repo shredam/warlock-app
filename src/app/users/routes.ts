@@ -14,6 +14,7 @@ import logout from "./controllers/auth/logout";
 import resendActivationCode from "./controllers/auth/resend-activation-code";
 import resetPassword from "./controllers/auth/reset-password";
 import verifyForgetPasswordCode from "./controllers/auth/verify-forget-password-code";
+import getUsers from "./controllers/get-users";
 import changePassword from "./controllers/profile/change-password";
 import myProfile from "./controllers/profile/my-profile";
 import updateProfile from "./controllers/profile/update-profile";
@@ -49,3 +50,5 @@ guarded(() => {
   router.post("/logout", logout);
   router.post("/change-password", changePassword);
 });
+
+router.get("/users", getUsers);

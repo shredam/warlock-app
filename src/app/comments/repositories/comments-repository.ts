@@ -12,7 +12,19 @@ export class CommentsRepository extends RepositoryManager<Comment> {
   protected filterBy: FilterByOptions = this.withDefaultFilters({
     id: "int",
     post: ["int", "post.id"],
+    user: ["int", "user.id"],
+    parent: ["int", "comment.id"],
+    path: "like",
   });
+
+  public async getNestedComments(postId: number) {
+    return this.list({
+      post: postId,
+      orderBy: {
+        path: "asc",
+      },
+    });
+  }
 }
 
 const commentsRepository = new CommentsRepository();

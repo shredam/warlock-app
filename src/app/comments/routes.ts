@@ -1,4 +1,7 @@
 import { router } from "@warlock.js/core";
-import restfulComments from "./controllers/restful-comments";
+import addComment from "./controllers/add-comment";
+import getComments from "./controllers/get-comments";
 
-router.restfulResource("/comments", restfulComments);
+// router.restfulResource("/comments", restfulComments);
+router.post("/:postId/comments", addComment);
+router.get("/:postId/comments", getComments);
