@@ -1,5 +1,6 @@
-import { Restful, RouteResource } from "@warlock.js/core";
-import { BadWord } from "./../models/bad-word";
+import type { RouteResource } from "@warlock.js/core";
+import { Restful } from "@warlock.js/core";
+import type { BadWord } from "./../models/bad-word";
 import badWordsRepository from "./../repositories/bad-words-repository";
 
 class RestfulBadWords extends Restful<BadWord> implements RouteResource {

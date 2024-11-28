@@ -10,18 +10,15 @@ const getUsers: RequestHandler = async (
   response: Response,
 ) => {
   const { page = 1, limit = 10 } = request.query;
-  const skip = (Number(page) - 1) * Number(limit);
 
-  const users = await usersRepository.usersList(skip, limit);
-  const totalUsers = await usersRepository.count();
+  const { documents, paginationInfo } = await usersRepository.usersList(
+    page,
+    limit,
+  );
 
   return response.success({
-    users,
-    paginationInfo: {
-      currentPage: Number(page),
-      totalPages: Math.ceil(totalUsers / Number(limit)),
-      totalUsers,
-    },
+    documents,
+    paginationInfo,
   });
 };
 

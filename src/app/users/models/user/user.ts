@@ -45,6 +45,8 @@ export class User extends Auth {
     password: castPassword,
     activationCode: "int",
     codeExpiresAt: expiresAfter(30, "minutes"),
+    totalPosts: "int",
+    totalComments: "int",
   };
 
   /**

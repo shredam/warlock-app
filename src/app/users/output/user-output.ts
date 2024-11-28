@@ -8,5 +8,7 @@ export default class UserOutput extends Output {
   protected output: FinalOutput = withBaseOutputDetails({
     name: "string",
     email: "string",
+    totalPosts: "int",
+    totalComments: "int",
   });
 }

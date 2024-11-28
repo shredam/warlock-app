@@ -1,4 +1,5 @@
-import { FinalOutput, Output } from "@warlock.js/core";
+import type { FinalOutput } from "@warlock.js/core";
+import { Output } from "@warlock.js/core";
 import { withBaseOutputDetails } from "app/utils/output";
 
 export class BadWordOutput extends Output {

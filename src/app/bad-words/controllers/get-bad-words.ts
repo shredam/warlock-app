@@ -1,6 +1,6 @@
 import {
-  type RequestHandler,
   type Request,
+  type RequestHandler,
   type Response,
 } from "@warlock.js/core";
 import badWordsRepository from "../repositories/bad-words-repository";

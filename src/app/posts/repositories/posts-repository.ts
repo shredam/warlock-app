@@ -12,6 +12,7 @@ export class PostsRepository extends RepositoryManager<Post> {
   protected filterBy: FilterByOptions = this.withDefaultFilters({
     title: "like",
     category: ["int", "category.id"],
+    totalComments: "number",
   });
 }
 

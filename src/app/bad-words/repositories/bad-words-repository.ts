@@ -1,8 +1,5 @@
-import {
-  FilterByOptions,
-  RepositoryManager,
-  RepositoryOptions,
-} from "@warlock.js/core";
+import type { FilterByOptions, RepositoryOptions } from "@warlock.js/core";
+import { RepositoryManager } from "@warlock.js/core";
 import { BadWord } from "./../models/bad-word";
 
 export class BadWordsRepository extends RepositoryManager<BadWord> {
