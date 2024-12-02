@@ -3,19 +3,33 @@ import {
   type RequestHandler,
   type Response,
 } from "@warlock.js/core";
+import postsRepository from "app/posts/repositories/posts-repository";
 import commentsRepository from "../repositories/comments-repository";
 
 const getComments: RequestHandler = async (
   request: Request,
   response: Response,
 ) => {
-  const post = request.params.postId;
+  const { page = 1, limit = 10 } = request.query;
 
-  const comments = await commentsRepository.getNestedComments(post);
+  const postId = request.params.postId;
 
-  return response.success({
-    comments,
-  });
+  const post = await postsRepository.find(postId);
+
+  if (!post) {
+    return response.notFound("Post Not found");
+  }
+
+  const { documents: comments, paginationInfo } = await commentsRepository.list(
+    {
+      post: post,
+      parent: null,
+      page,
+      limit,
+    },
+  );
+
+  return response.success({ comments, paginationInfo });
 };
 
 export default getComments;

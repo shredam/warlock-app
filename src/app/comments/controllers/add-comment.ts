@@ -7,17 +7,13 @@ import commentsRepository from "../repositories/comments-repository";
 export default async function addComment(request: Request, response: Response) {
   const post = request.post;
   const user = request.user;
-  const parent = request.input("parent");
+  const parent = request.input("commentId");
 
-  let path = "";
   if (parent) {
     const parentComment = await commentsRepository.find(parent);
     if (!parentComment || parentComment.get("post.id") !== post.id) {
       return response.notFound("Invalid parent comment");
     }
-    path = `${parentComment.get("path")}.${parent}`;
-  } else {
-    path = `root`;
   }
 
   const sanitizedContent = await censorBadWords(request.input("content"));
@@ -27,7 +23,6 @@ export default async function addComment(request: Request, response: Response) {
     user,
     post,
     parent,
-    path,
   });
 
   response.success({

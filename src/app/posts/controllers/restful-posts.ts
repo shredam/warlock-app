@@ -19,6 +19,7 @@ class RestfulPosts extends Restful<Post> implements RouteResource {
         title: ["required", "string"],
         category: ["required", "number"],
         content: ["string"],
+        isActive: ["boolean"],
       },
     },
   };

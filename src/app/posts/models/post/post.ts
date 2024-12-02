@@ -18,6 +18,7 @@ export class Post extends Model {
   };
 
   protected casts: Casts = {
+    isActive: "boolean",
     title: "string",
     content: "string",
     auther: castModel(User),
@@ -26,5 +27,5 @@ export class Post extends Model {
     images: uploadable,
   };
 
-  public embedded = ["id", "title", "category", "totalComments"];
+  public embedded = ["id", "title", "auther", "category", "totalComments"];
 }

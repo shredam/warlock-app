@@ -8,6 +8,7 @@ export default class PostOutput extends Output {
    * Output data
    */
   protected output: FinalOutput = withBaseOutputDetails({
+    isActive: "boolean",
     title: "string",
     content: "string",
     auther: UserOutput,

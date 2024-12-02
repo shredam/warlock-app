@@ -6,6 +6,7 @@ export default class CategoryOutput extends Output {
    * Output data
    */
   protected output: FinalOutput = withBaseOutputDetails({
+    isActive: "boolean",
     tag: "string",
   });
 }

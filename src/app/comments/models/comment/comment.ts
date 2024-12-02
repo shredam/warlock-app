@@ -16,7 +16,6 @@ export class Comment extends Model {
     user: castModel(User),
     post: Post.embedOnly("id"),
     parent: castModel(Comment),
-    path: "string",
   };
 
   public embedded = ["id", "content"];

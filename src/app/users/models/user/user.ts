@@ -46,6 +46,7 @@ export class User extends Auth {
     activationCode: "int",
     codeExpiresAt: expiresAfter(30, "minutes"),
     totalPosts: "int",
+    totalActivePosts: "int",
     totalComments: "int",
   };
 

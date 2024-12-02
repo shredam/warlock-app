@@ -3,23 +3,23 @@ import {
   type RequestHandler,
   type Response,
 } from "@warlock.js/core";
-import usersRepository from "../repositories/users-repository";
+import usersRepository from "app/users/repositories/users-repository";
 
-const getUsers: RequestHandler = async (
+const getUsersList: RequestHandler = async (
   request: Request,
   response: Response,
 ) => {
   const { page = 1, limit = 10 } = request.query;
 
-  const { documents, paginationInfo } = await usersRepository.usersList(
+  const { documents: users, paginationInfo } = await usersRepository.usersList(
     page,
     limit,
   );
 
   return response.success({
-    documents,
+    users,
     paginationInfo,
   });
 };
 
-export default getUsers;
+export default getUsersList;

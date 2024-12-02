@@ -9,6 +9,7 @@ export default class UserOutput extends Output {
     name: "string",
     email: "string",
     totalPosts: "int",
+    totalActivePosts: "int",
     totalComments: "int",
   });
 }

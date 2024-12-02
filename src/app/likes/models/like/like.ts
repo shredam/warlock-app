@@ -1,5 +1,5 @@
 import type { Casts, ModelSync } from "@warlock.js/cascade";
-import { Model } from "@warlock.js/cascade";
+import { castModel, Model } from "@warlock.js/cascade";
 import { LikeOutput } from "app/likes/output/like-output";
 import { Post } from "app/posts/models/post";
 import { User } from "app/users/models/user";
@@ -12,8 +12,8 @@ export class Like extends Model {
   public syncWith: ModelSync[] = [];
 
   protected casts: Casts = {
-    user: User.embedOnlyId,
-    post: Post.embedOnlyId,
+    user: castModel(User),
+    post: castModel(Post),
   };
 
   public embedded = ["id"];

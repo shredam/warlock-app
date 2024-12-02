@@ -1,6 +1,14 @@
 import { router } from "@warlock.js/core";
+import { publicRoutes } from "app/utils/router";
 import addLike from "./controllers/add-like";
-import getLikes from "./controllers/get-likes";
+import deleteLike from "./controllers/delete-like";
+import getLikesByPost from "./controllers/get-likes-for-post";
 
-router.get("/likes/:id", getLikes);
-router.post("/likes/:id/add", addLike);
+publicRoutes(() => {
+  router.post("/posts/:id/likes", addLike);
+
+  router.get("/posts/:id/likes", getLikesByPost);
+  router.get("/users/:id/likes", getLikesByPost);
+
+  router.delete("/posts/:postId/likes", deleteLike);
+});

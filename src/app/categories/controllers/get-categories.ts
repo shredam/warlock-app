@@ -7,6 +7,7 @@ export default async function getCategories(
 ) {
   const { documents: categories, paginationInfo } =
     await categoriesRepository.listActive(request.all());
+
   return response.success({
     categories,
     paginationInfo,

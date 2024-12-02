@@ -11,8 +11,9 @@ export class Category extends Model {
   public syncWith: ModelSync[] = [Post.sync("category")];
 
   protected casts: Casts = {
+    isActive: "boolean",
     tag: "string",
   };
 
-  public embedded = ["id"];
+  public embedded = ["id", "tag"];
 }

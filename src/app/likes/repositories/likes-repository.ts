@@ -14,18 +14,19 @@ export class LikesRepository extends RepositoryManager<Like> {
     user: ["int", "user.id"],
   });
 
-  public getLikesByPostId(_postId: number) {
+  public getLikesByPost(postId: number, page: number, limit: number) {
     return this.list({
-      post: _postId,
-      perform(query) {
-        query.lookup({
-          from: "users",
-          localField: "user.id",
-          foreignField: "id",
-          as: "user",
-        });
-        query.select("user");
-      },
+      post: postId,
+      page,
+      limit,
+    });
+  }
+
+  public getLikesByUser(userId: number, page: number, limit: number) {
+    return this.list({
+      user: userId,
+      page,
+      limit,
     });
   }
 }

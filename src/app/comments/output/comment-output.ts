@@ -11,6 +11,5 @@ export class CommentOutput extends Output {
     content: "string",
     post: PostOutput,
     parent: CommentOutput,
-    path: "string",
   });
 }

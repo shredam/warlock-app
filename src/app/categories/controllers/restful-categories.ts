@@ -10,6 +10,7 @@ class RestfulCategories extends Restful<Category> implements RouteResource {
     all: {
       rules: {
         tag: ["required", "minLength:2"],
+        isActive: ["boolean"],
       },
     },
   };

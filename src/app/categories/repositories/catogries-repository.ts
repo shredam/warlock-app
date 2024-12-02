@@ -11,6 +11,7 @@ export class CategoriesRepository extends RepositoryManager<Category> {
 
   protected filterBy: FilterByOptions = this.withDefaultFilters({
     tag: "like",
+    isActive: "bool",
   });
 }
 

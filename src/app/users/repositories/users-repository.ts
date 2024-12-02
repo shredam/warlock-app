@@ -22,11 +22,24 @@ export class UsersRepository extends RepositoryManager<User> {
     isActive: "bool",
     activationCode: "=",
     totalPosts: "number",
+    totalActivePosts: "number",
     totalComments: "number",
+    totalLikes: "number",
   });
 
   public async usersList(page: number, limit: number) {
-    return await this.list({ page: page, limit: limit });
+    return await this.list({
+      page: page,
+      limit: limit,
+      select: [
+        "id",
+        "name",
+        "totalPosts",
+        "totalActivePosts",
+        "totalComments",
+        "totalLikes",
+      ],
+    });
   }
 }
 

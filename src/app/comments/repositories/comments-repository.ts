@@ -14,17 +14,7 @@ export class CommentsRepository extends RepositoryManager<Comment> {
     post: ["int", "post.id"],
     user: ["int", "user.id"],
     parent: ["int", "comment.id"],
-    path: "like",
   });
-
-  public async getNestedComments(postId: number) {
-    return this.list({
-      post: postId,
-      orderBy: {
-        path: "asc",
-      },
-    });
-  }
 }
 
 const commentsRepository = new CommentsRepository();

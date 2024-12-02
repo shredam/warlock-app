@@ -5,14 +5,16 @@ import {
 } from "@warlock.js/core";
 import likesRepository from "../repositories/likes-repository";
 
-const getLikes: RequestHandler = async (
+const getLikesByUser: RequestHandler = async (
   request: Request,
   response: Response,
 ) => {
-  const postId = request.int("id");
+  const { page = 1, limit = 10 } = request.query;
+
+  const user = request.int("id");
 
   const { documents: likes, paginationInfo } =
-    await likesRepository.getLikesByPostId(postId);
+    await likesRepository.getLikesByUser(user, page, limit);
 
   return response.success({
     likes,
@@ -20,4 +22,4 @@ const getLikes: RequestHandler = async (
   });
 };
 
-export default getLikes;
+export default getLikesByUser;
